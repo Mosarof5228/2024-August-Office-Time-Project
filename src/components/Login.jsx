@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
   const navigetor = useNavigate();
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, goggleLogin } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -16,6 +16,16 @@ const Login = () => {
         console.log(result.user);
         alert("User login Successfully");
         navigetor("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGoggleLogin = () => {
+    goggleLogin()
+      .then((result) => {
+        console.log(result.user);
       })
       .catch((error) => {
         console.log(error.message);
@@ -70,6 +80,15 @@ const Login = () => {
               </h2>
             </div>
           </form>
+
+          <div className="form-control mt-6">
+            <button
+              onClick={handleGoggleLogin}
+              className="btn mx-4 my-4 btn-primary"
+            >
+              Goggle Login
+            </button>
+          </div>
         </div>
       </div>
     </div>
