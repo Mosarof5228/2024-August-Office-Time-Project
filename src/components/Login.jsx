@@ -11,6 +11,7 @@ const Login = () => {
     console.log(email, password);
     signInUser(email, password)
       .then((result) => {
+        event.target.reset();
         console.log(result.user);
         alert("User login Successfully");
       })

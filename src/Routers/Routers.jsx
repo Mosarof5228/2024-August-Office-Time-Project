@@ -3,6 +3,8 @@ import Root from "../Root/Root";
 import Home from "../components/Home";
 import Login from "../components/Login";
 import Registration from "../components/Registration";
+import Orders from "../components/Orders";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,15 @@ export const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/orders",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Orders></Orders>
+          </PrivateRoute>
+        ),
       },
     ],
   },

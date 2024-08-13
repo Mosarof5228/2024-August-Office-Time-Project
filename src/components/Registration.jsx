@@ -12,6 +12,7 @@ const Registration = () => {
     console.log(email, password, name);
     createUser(email, password)
       .then((result) => {
+        event.target.reset();
         console.log(result.user);
         alert("user created successfully");
       })
